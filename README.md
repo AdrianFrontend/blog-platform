@@ -1,1 +1,1 @@
-https://vercel.com/adrianfrontend/blog-platform
+https://blog-platform-pi-drab.vercel.app/
