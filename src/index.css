@@ -1,0 +1,40 @@
+body {
+	margin: 0;
+	font-family: "Inter", sans-serif;
+}
+
+code {
+	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+html {
+	box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
+.ant-pagination-item-active {
+	border: none !important;
+	background-color: rgba(24, 144, 255, 1) !important;
+}
+
+.ant-pagination-item-active a {
+	color: rgba(255, 255, 255, 1) !important;
+	border: none !important;
+}
+
+.ant-popconfirm-title {
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 22px;
+	letter-spacing: 0em;
+	text-align: left;
+}
+
+.ant-popover-content {
+	width: 240px !important;
+}

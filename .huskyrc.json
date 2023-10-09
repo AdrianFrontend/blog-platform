@@ -1,0 +1,6 @@
+{
+	"gitDir": "../.git",
+	"hooks": {
+		"pre-commit": "lint-staged"
+	}
+}

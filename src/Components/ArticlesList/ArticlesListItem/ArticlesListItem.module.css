@@ -1,0 +1,111 @@
+.ArticlesListItem {
+	width: 938px;
+	height: 140px;
+
+	background-color: rgba(255, 255, 255, 1);
+
+	padding: 15px;
+
+	position: relative;
+
+	box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.15);
+
+	margin-bottom: 26px;
+}
+
+.title {
+	font-size: 20px;
+	line-height: 28px;
+	color: rgba(24, 144, 255, 1);
+	text-decoration: none;
+	display: inline-block;
+	margin-right: 12px;
+	margin-bottom: 4px;
+	/* overflow:hidden; */
+	/* width: 300px; */
+}
+
+.title:hover {
+	opacity: 0.8;
+}
+
+.likes {
+	font-size: 12px;
+	color: rgba(0, 0, 0, 0.75);
+	display: inline-block;
+	transform: translateY(-3px);
+}
+
+.likes button {
+	background-color: inherit;
+	border: none;
+	width: 16px;
+	height: 16px;
+	margin-right: 5px;
+}
+
+.likesIcon {
+	margin-bottom: -4px;
+	margin-left: -7px;
+}
+
+.tags {
+	margin-bottom: 4px;
+}
+
+.tag {
+	font-size: 12px;
+	color: rgba(0, 0, 0, 0.5);
+	border: 1px solid rgba(0, 0, 0, 0.5);
+	border-radius: 2px;
+
+	padding: 2px 6px 3px 5px;
+	margin-right: 8px;
+}
+
+.description {
+	font-size: 12px;
+	color: rgba(0, 0, 0, 0.5);
+	display: inline-block;
+	overflow: hidden;
+
+	line-height: 22px;
+	max-width: 682px;
+}
+
+.author {
+	display: grid;
+	height: 46px;
+	width: 300px;
+	text-align: right;
+	grid-template-areas:
+		"name avatar"
+		"date avatar";
+	grid-template-columns: 1fr 46px;
+
+	position: absolute;
+
+	top: 15px;
+	right: 15px;
+}
+
+.authorName {
+	font-size: 18px;
+	color: rgba(0, 0, 0, 0.85);
+	grid-area: name;
+	margin-right: 12px;
+	margin-top: 5px;
+}
+
+.publishDate {
+	font-size: 12px;
+	color: rgba(0, 0, 0, 0.5);
+	grid-area: date;
+	margin-right: 12px;
+}
+
+.authorAvatar {
+	height: 46px;
+	width: 46px;
+	grid-area: avatar;
+}

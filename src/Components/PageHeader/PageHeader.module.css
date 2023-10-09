@@ -1,0 +1,137 @@
+.PageHeader {
+	background-color: #ffffff;
+	width: 1440px;
+	height: 80px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0 22px;
+}
+
+.mainPageLink {
+	display: inline-block;
+	height: 56px;
+	width: 147px;
+	margin-top: 9px;
+	padding-top: 20px;
+	text-decoration: none;
+
+	transition: all 0.2s;
+}
+
+.mainPageLink:hover {
+	opacity: 0.7;
+}
+
+.appTitle {
+	vertical-align: bottom;
+	color: rgba(0, 0, 0, 0.85);
+	font-size: 18px;
+}
+
+.signInLink {
+	margin-left: 1056px;
+	color: rgba(0, 0, 0, 0.85);
+	font-size: 18px;
+
+	display: inline-block;
+	width: 84px;
+
+	text-decoration: none;
+
+	transition: all 0.2s;
+}
+
+.signInLink:hover {
+	opacity: 0.7;
+}
+
+.signUpLink {
+	color: rgba(82, 196, 26, 1);
+	font-size: 18px;
+
+	display: inline-block;
+	width: 109px;
+	height: 51px;
+
+	border: 1px solid rgba(82, 196, 26, 1);
+	border-radius: 5px;
+
+	padding: 13px 18px 10px;
+
+	text-decoration: none;
+
+	transition: all 0.2s;
+}
+
+.signUpLink:hover {
+	opacity: 0.7;
+}
+
+.createArticleLink {
+	margin-left: 834px;
+	color: rgba(0, 0, 0, 0.85);
+	font-size: 14px;
+	line-height: 22px;
+
+	text-decoration: none;
+
+	transition: all 0.2s;
+
+	color: rgba(82, 196, 26, 1);
+
+	display: inline-block;
+	width: 112px;
+	height: 31px;
+
+	border: 1px solid rgba(82, 196, 26, 1);
+	border-radius: 5px;
+
+	padding: 4px 10px 7px;
+}
+
+.createArticleLink:hover {
+	opacity: 0.7;
+}
+
+.username {
+	font-size: 18px;
+	color: rgba(0, 0, 0, 0.85);
+	margin-right: 12px;
+	margin-top: 5px;
+}
+
+.user {
+	display: inline-block;
+	margin-left: 26px;
+	margin-right: 27px;
+	text-decoration: none;
+}
+
+.avatar {
+	width: 46px;
+	height: 46px;
+	display: inline-block;
+	transform: translateY(16px);
+}
+
+.logoutButton {
+	color: rgba(0, 0, 0, 0.75);
+	font-size: 18px;
+
+	display: inline-block;
+	width: 109px;
+	height: 51px;
+
+	border: 1px solid rgba(0, 0, 0, 0.75);
+	border-radius: 5px;
+
+	padding: 13px 23px 10px;
+
+	text-decoration: none;
+
+	transition: all 0.2s;
+}
+
+.logoutButton:hover {
+	opacity: 0.7;
+}
