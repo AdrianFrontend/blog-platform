@@ -142,7 +142,7 @@ const Article = () => {
 							Delete
 						</Popconfirm>
 					</Button>
-					<Button className={s.editButton} onClick={() => setEditMode(true)}>
+					<Button className={s.editButton} onClick={() => localStorage.getItem("isAuth") ? setEditMode(true) : location.replace("/login")}>
 						Edit
 					</Button>
 				</div>

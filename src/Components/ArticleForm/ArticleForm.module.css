@@ -1,0 +1,113 @@
+.EditArticle {
+	width: 938px;
+	padding: 48px 32px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 34px;
+
+	border-radius: 6px;
+	border: 1px solid var(--grey-grey-5, #d9d9d9);
+	background: var(--grey-grey-1, #fff);
+	box-shadow: 0px 0.6088px 2.93329px 0px rgba(0, 0, 0, 0.02), 0px 1.46302px 7.04911px 0px rgba(0, 0, 0, 0.03),
+		0px 2.75474px 13.27285px 0px rgba(0, 0, 0, 0.04), 0px 4.91399px 23.67649px 0px rgba(0, 0, 0, 0.04),
+		0px 9.19107px 44.28427px 0px rgba(0, 0, 0, 0.05), 0px 22px 106px 0px rgba(0, 0, 0, 0.07);
+}
+
+.title {
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 28px;
+	letter-spacing: 0em;
+	text-align: center;
+
+	color: rgba(38, 38, 38, 1);
+
+	margin-bottom: 21px;
+}
+
+.field {
+	margin-bottom: 21px;
+}
+
+.fieldInput {
+	height: 40px;
+}
+
+.fieldName {
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 22px;
+	letter-spacing: 0em;
+	text-align: left;
+
+	color: rgba(38, 38, 38, 1);
+}
+
+.fieldInputBody {
+	min-height: 168px !important;
+	resize: none !important;
+}
+
+.tags {
+	margin-bottom: 21px;
+}
+
+.tagField {
+	margin-bottom: 5px;
+}
+
+.tagFieldInput {
+	width: 300px;
+	height: 40px;
+	display: inline-block;
+	margin-right: 17px;
+}
+
+.deleteButton {
+	width: 120px;
+	height: 40px;
+	color: rgba(245, 34, 45, 1);
+	border-color: rgba(245, 34, 45, 1);
+	margin-right: 17px;
+}
+
+.deleteButton:hover {
+	color: rgba(245, 34, 45, 1) !important;
+	border-color: rgba(245, 34, 45, 1) !important;
+}
+
+.addButton {
+	width: 136px;
+	height: 40px;
+	color: rgba(24, 144, 255, 1);
+	border-color: rgba(24, 144, 255, 1);
+	display: none;
+}
+
+.deleteButton:disabled:hover {
+	color: #c5c4c4 !important;
+	border-color: #d9d9d9 !important;
+}
+
+.tagField:last-child .addButton {
+	display: inline-block;
+}
+
+.tagField:nth-child(6) .addButton {
+	display: none;
+}
+
+.sendButton {
+	width: 319px;
+	height: 40px;
+	background-color: rgba(24, 144, 255, 1);
+	color: rgba(255, 255, 255, 1);
+}
+
+.sendButton:hover {
+	color: rgba(255, 255, 255, 1) !important;
+}
+
+.errorInput {
+	border-color: rgba(245, 34, 45, 1) !important;
+}

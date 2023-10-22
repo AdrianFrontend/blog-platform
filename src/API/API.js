@@ -155,7 +155,7 @@ export const articlesAPI = {
 					},
 				}
 			)
-			.then((r) => console.log(r));
+			.then((r) => location.replace("/"));
 	},
 	editArticle({ title, description, body, tags, path }) {
 		axios

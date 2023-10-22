@@ -1,116 +1,90 @@
-import s from "./Login.module.css";
-import { Button, Checkbox, Input } from "antd";
-import { Link } from "react-router-dom";
-import { authAPI } from "../../API/API";
-import { useState } from "react";
+import { useForm } from "react-hook-form"
+import s from "./Login.module.css"
+import { Link } from "react-router-dom"
+import { authAPI } from "../../API/API"
+import { useState } from "react"
 
 const Login = () => {
-	if (localStorage.getItem("isAuth")) {
-		return (
-			<div className={s.HelloWrapper}>
-				<span className={s.hello}>You are login!</span>
-				<Link to="/" className={s.toMain}>
-					To main
-				</Link>
-			</div>
-		);
-	}
+    const [loading, setLoading] = useState(false)
+    const { register, formState: { errors }, handleSubmit } = useForm()
 
-	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
-	const [errors, setErrors] = useState({
-		email: false,
-		password: false,
-	});
-	const [error, setError] = useState(false);
+    const onSubmit = (data) => {
+        authAPI.login({ email: data.emailAddress, password: data.password })
+        setLoading(true)
+    }
 
-	const onChangeInput = (inputName, value) => {
-		if (inputName === "Email") {
-			if (value.match(/^\S+@\S+$/)) {
-				setEmail(value);
-				setErrors({
-					...errors,
-					email: false,
-				});
-			} else {
-				setErrors({
-					...errors,
-					email: true,
-				});
-				setEmail("");
-			}
-		}
-		if (inputName === "Password") {
-			if (value.length >= 1) {
-				setPassword(value);
-				setErrors({
-					...errors,
-					password: false,
-				});
-			} else {
-				setErrors({
-					...errors,
-					password: true,
-				});
-				setPassword("");
-			}
-		}
-	};
+    const emailRegex = /^[a-zA-Zа-яА-Я0-9._%+-]+@[a-zA-Zа-яА-Я0-9.-]+\.[a-zA-Zа-яА-Я]{2,}$/;
 
-	const onSubmit = () => {
-		for (let key in errors) {
-			if (errors[key]) {
-				return;
-			}
-		}
+    return (
+        <div className={s.Login}>
+            <form onSubmit={handleSubmit(onSubmit)}>
+            <span className={s.title}>Sign In</span>
+                <div className={s.field}>
+                    <span className={s.fieldName}>Email address</span>
+                    <input
+                        type="email"
+                        {...register("emailAddress", { required: true, pattern: { value: emailRegex, message: "Invalid email" } })}
+                        placeholder="Email address"
+                        className={s.fieldInput}
+                    />
+                    {errors?.emailAddress && <span className={s.error} style={{ textAlign: "center" }}>{errors?.emailAddress?.message || "Incorrect Email"}</span>}
+                </div>
+                <div className={s.field}>
+                    <span className={s.fieldName}>Password</span>
+                    <input
+                        type="password"
+                        {...register("password", {
+                            required: true, minLength: { value: 6, message: "Min length is 6" },
+                            maxLength: { value: 40, message: "Min length is 40" },
+                        })}
+                        placeholder="Password"
+                        className={s.fieldInput}
+                    />
+                    {errors?.password && <span className={s.error} style={{ textAlign: "center" }}>{errors?.password?.message || "Incorrect Password"}</span>}
+                </div>
 
-		let creds = { email: email, password: password };
+                <button className={s.createButton} type="submit" disabled={loading}>
+                    Login
+                </button>
+                <span className={s.signInOffer}>
+                    Don’t have an account? <Link to="/register">Sign Up</Link>.
+                </span>
+            </form>
 
-		for (let key in creds) {
-			if (creds[key].length < 1) {
-				return;
-			}
-		}
+            {/* <span className={s.title}>Sign In</span>
+                <div className={s.field}>
+                    <span className={s.fieldName}>Email address</span>
+                    <Input
+                        visibilityToggle={false}
+                        type="email"
+                        placeholder="Email address"
+                        className={`${s.fieldInput} ${errors.email ? s.errorInput : null}`}
+                        onChange={(e) => onChangeInput("Email", e.target.value)}
+                    />
+                </div>
+                <div className={s.field}>
+                    <span className={s.fieldName}>Password</span>
+                    <Input.Password
+                        visibilityToggle={false}
+                        placeholder="Password"
+                        className={`${s.fieldInput} ${errors.password ? s.errorInput : null}`}
+                        onChange={(e) => onChangeInput("Password", e.target.value)}
+                    />
+                </div>
+                <Button className={s.createButton} onClick={onSubmit} disabled={loading}>
+                    Login
+                </Button>
+                <span className={s.signInOffer}>
+                    Don’t have an account? <Link to="/register">Sign Up</Link>.
+                </span>
 
-		authAPI.login(creds);
-		setTimeout(() => setError(true), 2000);
-	};
+                {error ? (
+                    <div className={s.error} style={{ textAlign: "center" }}>
+                        Incorrect login or password!
+                    </div>
+                ) : null} */}
+        </div>
+    )
+}
 
-	return (
-		<div className={s.Login}>
-			<span className={s.title}>Sign In</span>
-			<div className={s.field}>
-				<span className={s.fieldName}>Email address</span>
-				<Input
-					visibilityToggle={false}
-					placeholder="Email address"
-					className={`${s.fieldInput} ${errors.email ? s.errorInput : null}`}
-					onChange={(e) => onChangeInput("Email", e.target.value)}
-				/>
-			</div>
-			<div className={s.field}>
-				<span className={s.fieldName}>Password</span>
-				<Input.Password
-					visibilityToggle={false}
-					placeholder="Password"
-					className={`${s.fieldInput} ${errors.password ? s.errorInput : null}`}
-					onChange={(e) => onChangeInput("Password", e.target.value)}
-				/>
-			</div>
-			<Button className={s.createButton} onClick={onSubmit}>
-				Login
-			</Button>
-			<span className={s.signInOffer}>
-				Don’t have an account? <Link to="/register">Sign Up</Link>.
-			</span>
-
-			{error ? (
-				<div className={s.error} style={{ textAlign: "center" }}>
-					Incorrect login or password!
-				</div>
-			) : null}
-		</div>
-	);
-};
-
-export default Login;
+export default Login

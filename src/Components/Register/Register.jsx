@@ -29,6 +29,7 @@ const Register = () => {
 	});
 	const [error, setError] = useState(false);
 	const [sendDisabled, setSendDisabled] = useState(true);
+	const [loading, setLoading] = useState(false)
 
 	const onChangeInput = (inputName, value) => {
 		if (inputName === "Username") {
@@ -104,6 +105,7 @@ const Register = () => {
 
 		for (let key in creds) {
 			if (creds[key].length < 3) {
+				setErrors({...error, [key]: true})
 				return;
 			}
 		}
@@ -113,7 +115,11 @@ const Register = () => {
 		}
 
 		authAPI.register(creds);
-		setTimeout(() => setError(true), 2000);
+		setLoading(true)
+		setTimeout(() => {
+			setError(true)
+			setLoading(false)
+		}, 2000);
 	};
 
 	return (
