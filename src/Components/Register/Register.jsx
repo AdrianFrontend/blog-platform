@@ -105,7 +105,7 @@ const Register = () => {
 
 		for (let key in creds) {
 			if (creds[key].length < 3) {
-				setErrors({...error, [key]: true})
+				setErrors({ ...error, [key]: true })
 				return;
 			}
 		}
@@ -136,6 +136,7 @@ const Register = () => {
 			<div className={s.field}>
 				<span className={s.fieldName}>Email address</span>
 				<Input
+					type="mail"
 					placeholder="Email address"
 					className={`${s.fieldInput} ${errors.email ? s.errorInput : null}`}
 					onChange={(e) => onChangeInput("Email", e.target.value)}

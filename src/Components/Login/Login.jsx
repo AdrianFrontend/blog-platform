@@ -22,7 +22,7 @@ const Login = () => {
                 <div className={s.field}>
                     <span className={s.fieldName}>Email address</span>
                     <input
-                        type="email"
+                        type="mail"
                         {...register("emailAddress", { required: true, pattern: { value: emailRegex, message: "Invalid email" } })}
                         placeholder="Email address"
                         className={s.fieldInput}
@@ -50,39 +50,6 @@ const Login = () => {
                     Don’t have an account? <Link to="/register">Sign Up</Link>.
                 </span>
             </form>
-
-            {/* <span className={s.title}>Sign In</span>
-                <div className={s.field}>
-                    <span className={s.fieldName}>Email address</span>
-                    <Input
-                        visibilityToggle={false}
-                        type="email"
-                        placeholder="Email address"
-                        className={`${s.fieldInput} ${errors.email ? s.errorInput : null}`}
-                        onChange={(e) => onChangeInput("Email", e.target.value)}
-                    />
-                </div>
-                <div className={s.field}>
-                    <span className={s.fieldName}>Password</span>
-                    <Input.Password
-                        visibilityToggle={false}
-                        placeholder="Password"
-                        className={`${s.fieldInput} ${errors.password ? s.errorInput : null}`}
-                        onChange={(e) => onChangeInput("Password", e.target.value)}
-                    />
-                </div>
-                <Button className={s.createButton} onClick={onSubmit} disabled={loading}>
-                    Login
-                </Button>
-                <span className={s.signInOffer}>
-                    Don’t have an account? <Link to="/register">Sign Up</Link>.
-                </span>
-
-                {error ? (
-                    <div className={s.error} style={{ textAlign: "center" }}>
-                        Incorrect login or password!
-                    </div>
-                ) : null} */}
         </div>
     )
 }
